@@ -2,6 +2,10 @@
   "name": "mymoney-web",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --progress --colors --inline --hot",
+    "prod": "webpack --progress -p"
+  },
   "license": "MIT",
   "devDependencies": {
     "axios": "0.15.3",
