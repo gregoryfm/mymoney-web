@@ -11,6 +11,7 @@ import TabHeader from '../common/tabs/TabHeader';
 import TabContent from '../common/tabs/TabContent';
 import { selectTab, showTabs } from '../common/tabs/tabActions';
 import BillingCycleList from './BillingCycleList';
+import BillingCycleForm from './BillingCycleForm';
 
 class BillingCycle extends React.Component {
 
@@ -35,7 +36,9 @@ class BillingCycle extends React.Component {
               <TabContent id='tabList'>
                 <BillingCycleList />
               </TabContent>
-              <TabContent id='tabCreate'><h1>Insert</h1></TabContent>
+              <TabContent id='tabCreate'>
+                <BillingCycleForm />
+              </TabContent>
               <TabContent id='tabUpdate'><h1>Update</h1></TabContent>
               <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
             </TabsContent>
