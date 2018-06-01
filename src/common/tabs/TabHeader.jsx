@@ -6,9 +6,7 @@ import { selectTab } from './tabActions';
 
 class TabHeader extends React.Component {
   render() {
-
     const selected = this.props.tab.selected === this.props.target;
-
     return (
       <li className={selected ? 'active' : ''}>
         <a href='javascript:;'
