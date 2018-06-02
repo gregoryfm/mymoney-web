@@ -5,18 +5,19 @@ import { Field, arrayInsert, arrayRemove } from 'redux-form';
 
 import Grid from '../common/layout/Grid';
 import Input from '../common/form/input';
+import If from '../common/operator/if';
 
-class CreditList extends React.Component {
+class ItemList extends React.Component {
 
   add(index, item = {}) {
     if (!this.props.readOnly) {
-      this.props.arrayInsert('billingCycleForm', 'credits', index, item);
+      this.props.arrayInsert('billingCycleForm', this.props.field, index, item);
     }
   }
 
   remove( index ) {
     if (!this.props.readOnly && this.props.list.length > 1) {
-      this.props.arrayRemove('billingCycleForm', 'credits', index);
+      this.props.arrayRemove('billingCycleForm', this.props.field, index);
     }
   }
 
@@ -25,17 +26,27 @@ class CreditList extends React.Component {
     return list.map((item, index) => (
       <tr key={index}>
         <td>
-          <Field name={`credits[${index}].name`}
+          <Field name={`${this.props.field}[${index}].name`}
                 component={Input}
                 placeholder='Name'
                 readOnly={this.props.readOnly} />
         </td>
         <td>
-          <Field name={`credits[${index}].value`}
+          <Field name={`${this.props.field}[${index}].value`}
                 component={Input}
                 placeholder='Value'
                 readOnly={this.props.readOnly} />
         </td>
+
+        <If test={this.props.showStatus}>
+          <td>
+            <Field name={`${this.props.field}[${index}].status`}
+                  component={Input}
+                  placeholder='Status'
+                  readOnly={this.props.readOnly} />
+          </td>
+        </If>
+
         <td>
           <button type='button'
                   className="btn btn-success"
@@ -61,12 +72,15 @@ class CreditList extends React.Component {
     return (
       <Grid cols={this.props.cols}>
         <fieldset>
-          <legend>Credit</legend>
+          <legend>{this.props.legend}</legend>
           <table className="table">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Value</th>
+                <If test={this.props.showStatus}>
+                  <th>Status</th>
+                </If>
                 <th className='table-actions'>Actions</th>
               </tr>
             </thead>
@@ -83,4 +97,4 @@ class CreditList extends React.Component {
 const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({ arrayInsert, arrayRemove }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreditList);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
