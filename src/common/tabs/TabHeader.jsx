@@ -11,16 +11,14 @@ class TabHeader extends React.Component {
     const visible = this.props.tab.visible[this.props.target];
 
     return (
-      <If test={visible}>
-        <li className={selected ? 'active' : ''}>
-          <a href='javascript:;'
-            data-toggle='tab'
-            data-target={this.props.target}
-            onClick={() => this.props.selectTab(this.props.target)}>
-            <i className={`fa fa-${this.props.icon}`}></i> {this.props.label}
-          </a>
-        </li>
-      </If>
+      <li className={selected ? 'active' : ''}>
+        <a href='javascript:;'
+          data-toggle='tab'
+          data-target={this.props.target}
+          onClick={() => this.props.selectTab(this.props.target)}>
+          <i className={`fa fa-${this.props.icon}`}></i> {this.props.label}
+        </a>
+      </li>
     );
   }
 }

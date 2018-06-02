@@ -11,7 +11,7 @@ import TabHeader from '../common/tabs/TabHeader';
 import TabContent from '../common/tabs/TabContent';
 
 import { selectTab, showTabs } from '../common/tabs/tabActions';
-import { create } from './billingCycleActions';
+import { create, update } from './billingCycleActions';
 
 import BillingCycleList from './BillingCycleList';
 import BillingCycleForm from './BillingCycleForm';
@@ -55,7 +55,7 @@ class BillingCycle extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { selectTab, showTabs, create },
+  { selectTab, showTabs, create, update },
   dispatch
 );
 

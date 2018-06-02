@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from './layout/Grid';
+import Grid from '../layout/Grid';
 
 export default props => (
   <Grid cols={props.cols}>
