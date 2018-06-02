@@ -34,8 +34,15 @@ class BillingCycleForm extends React.Component {
                         placeholder='Year' />
                 </div>
                 <div className="box-footer">
-                    <button type='submit' className='btn btn-primary'>Submit</button>
-                    <button type='button' className="btn btn-default" onClick={this.props.init}>Cancel</button>
+                    <button type='submit'
+                        className={`btn btn-${this.props.submitClass}`}>
+                        {this.props.submitLabel}
+                    </button>
+                    <button type='button'
+                        className={`btn btn-${this.props.submitClass}`}
+                        onClick={this.props.init}>
+                        Cancel
+                    </button>
                 </div>
             </form>
         );
