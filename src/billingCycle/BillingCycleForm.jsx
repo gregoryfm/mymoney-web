@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { init } from './billingCycleActions';
 import LabelAndInput from '../common/form/labelAndInput';
 import ItemList from './ItemList';
+import Summary from './summary';
 
 class BillingCycleForm extends React.Component {
     render() {
@@ -34,12 +35,13 @@ class BillingCycleForm extends React.Component {
                         col='12 4'
                         placeholder='Year' />
 
+                    <Summary credit={100} debit={25}>
+
                     <ItemList cols='12 6'
                         readOnly={readOnly}
                         list={credits}
                         field='credits'
                         legend='Credits' />
-
                     <ItemList cols='12 6'
                         readOnly={readOnly}
                         showStatus={true}
